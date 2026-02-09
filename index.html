@@ -9,12 +9,31 @@
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&family=Playfair+Display:wght@500;600&display=swap" rel="stylesheet">
   <style>
     :root {
-      --bg: #faf9f6;
+      --bg: #faf8f5;
       --text: #1a1a1a;
       --text-muted: #5c5c5c;
       --accent: #ca1818;
       --accent-soft: #e8c4b8;
-      --border: #e5e2dc;
+      --border: #e8dfd4;
+      --brown-warm-1: #e2d2c4;
+      --brown-warm-2: #dcc4b2;
+      --brown-warm-3: #d0b8a4;
+      --brown-square-outline: #c4a88a;
+      --brown-square-fill: #b8986e;
+      --brown-sq-a: #c4a88a;
+      --brown-sq-b: #a67c52;
+      --brown-sq-c: #8b6914;
+      --brown-sq-d: #d4b896;
+      --brown-sq-e: #9c7c5c;
+      --brown-sq-f: #b8956a;
+      --red-deep-1: #8b2e2e;
+      --red-deep-2: #a03a3a;
+      --red-deep-3: #6b2020;
+      --red-deep-4: #9c3838;
+      --red-bright-1: #c43c3c;
+      --red-bright-2: #d45050;
+      --red-bright-3: #b83030;
+      --red-bright-4: #e05858;
     }
 
     * {
@@ -43,12 +62,189 @@
 
     /* Hero */
     header {
-      min-height: 85vh;
+      position: relative;
+      min-height: 145vh;
       display: flex;
       flex-direction: column;
       justify-content: center;
-      padding: 3rem 0;
+      padding: 5rem 0;
       border-bottom: 1px solid var(--border);
+      overflow: hidden;
+    }
+
+    .hero-squares {
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    .hero-squares .square {
+      position: absolute;
+      border: 2px solid var(--brown-square-outline);
+      background: var(--brown-square-fill);
+      opacity: 0.16;
+    }
+
+    .hero-squares .square.fill {
+      border: none;
+      background: var(--brown-square-fill);
+      opacity: 0.52;
+    }
+
+    .hero-squares .square.light-only {
+      border: none;
+      background: var(--brown-square-fill);
+      opacity: 0.12;
+    }
+
+    .hero-squares .square.shade-b { border-color: var(--brown-sq-b); background: var(--brown-sq-b); }
+    .hero-squares .square.shade-c { border-color: var(--brown-sq-c); background: var(--brown-sq-c); }
+    .hero-squares .square.shade-d { border-color: var(--brown-sq-d); background: var(--brown-sq-d); }
+    .hero-squares .square.shade-e { border-color: var(--brown-sq-e); background: var(--brown-sq-e); }
+    .hero-squares .square.shade-f { border-color: var(--brown-sq-f); background: var(--brown-sq-f); }
+    .hero-squares .square.fill.shade-b { background: var(--brown-sq-b); }
+    .hero-squares .square.fill.shade-d { background: var(--brown-sq-d); }
+    .hero-squares .square.fill.shade-f { background: var(--brown-sq-f); }
+    .hero-squares .square.light-only.shade-b { background: var(--brown-sq-b); }
+    .hero-squares .square.light-only.shade-d { background: var(--brown-sq-d); }
+    .hero-squares .square.light-only.shade-e { background: var(--brown-sq-e); }
+
+    .hero-squares .square.red-1 { border-color: var(--red-deep-1); background: var(--red-deep-1); }
+    .hero-squares .square.red-2 { border-color: var(--red-deep-2); background: var(--red-deep-2); }
+    .hero-squares .square.red-3 { border-color: var(--red-deep-3); background: var(--red-deep-3); }
+    .hero-squares .square.red-4 { border-color: var(--red-deep-4); background: var(--red-deep-4); }
+    .hero-squares .square.fill.red-1 { background: var(--red-deep-1); }
+    .hero-squares .square.fill.red-2 { background: var(--red-deep-2); }
+    .hero-squares .square.fill.red-3 { background: var(--red-deep-3); }
+    .hero-squares .square.light-only.red-1 { background: var(--red-deep-1); }
+    .hero-squares .square.light-only.red-2 { background: var(--red-deep-2); }
+    .hero-squares .square.light-only.red-4 { background: var(--red-deep-4); }
+    .hero-squares .square.red-b1 { border-color: var(--red-bright-1); background: var(--red-bright-1); }
+    .hero-squares .square.red-b2 { border-color: var(--red-bright-2); background: var(--red-bright-2); }
+    .hero-squares .square.red-b3 { border-color: var(--red-bright-3); background: var(--red-bright-3); }
+    .hero-squares .square.fill.red-b1 { background: var(--red-bright-1); }
+    .hero-squares .square.fill.red-b2 { background: var(--red-bright-2); }
+    .hero-squares .square.light-only.red-b1 { background: var(--red-bright-1); }
+    .hero-squares .square.light-only.red-b2 { background: var(--red-bright-2); }
+
+    .hero-squares .sq1  { width: 220px; height: 220px; top: 5%;   left: 0%; }
+    .hero-squares .sq2  { width: 140px; height: 140px; top: 28%;   left: 1%; }
+    .hero-squares .sq3  { width: 80px;  height: 80px;  top: 52%;  left: 0%; }
+    .hero-squares .sq4  { width: 280px; height: 280px; bottom: 3%; right: 0%; }
+    .hero-squares .sq5  { width: 100px; height: 100px; top: 18%;  right: 1%; }
+    .hero-squares .sq6  { width: 180px; height: 180px; bottom: 28%; right: 0%; }
+    .hero-squares .sq7  { width: 120px; height: 120px; top: 72%;  left: 2%; }
+    .hero-squares .sq8  { width: 160px; height: 160px; top: 12%;  right: 2%; }
+    .hero-squares .sq9  { width: 90px;  height: 90px;  top: 42%;  left: 1%; }
+    .hero-squares .sq10 { width: 200px; height: 200px; bottom: 12%; left: 0%; }
+    .hero-squares .sq11 { width: 70px;  height: 70px;  top: 85%;  right: 1%; }
+    .hero-squares .sq12 { width: 150px; height: 150px; top: 38%;  right: 0%; }
+    .hero-squares .sq13 { width: 110px; height: 110px; top: 62%;  left: 1%; }
+    .hero-squares .sq14 { width: 95px;  height: 95px;  top: 78%;  right: 2%; }
+    .hero-squares .sq15 { width: 130px; height: 130px; bottom: 18%; left: 0%; }
+
+    /* Confetti fall */
+    .hero-confetti {
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      z-index: 0;
+      overflow: hidden;
+    }
+
+    .hero-confetti .confetti {
+      position: absolute;
+      top: -20px;
+      width: 8px;
+      height: 8px;
+      background: var(--brown-square-fill);
+      opacity: 0.5;
+    }
+
+    .hero-confetti .confetti.mid { width: 12px; height: 12px; }
+    .hero-confetti .confetti.lg { width: 16px; height: 16px; }
+    .hero-confetti .confetti.red { background: var(--red-deep-1); }
+    .hero-confetti .confetti.red2 { background: var(--red-deep-3); }
+    .hero-confetti .confetti.red-bright { background: var(--red-bright-1); }
+    .hero-confetti .confetti.red-bright2 { background: var(--red-bright-2); }
+    .hero-confetti .confetti.brown { background: var(--brown-sq-b); }
+    .hero-confetti .confetti.tan { background: var(--brown-sq-d); }
+
+    .hero-confetti .confetti.star {
+      background: none;
+      width: auto;
+      height: auto;
+      font-size: 1.25rem;
+      line-height: 1;
+      opacity: 0.7;
+    }
+
+    .hero-confetti .confetti.star.sm { font-size: 1rem; }
+    .hero-confetti .confetti.star.lg { font-size: 1.5rem; }
+
+    @keyframes confetti-fall {
+      0% {
+        transform: translateY(0) translateX(0) rotate(0deg);
+        opacity: 0.5;
+      }
+      10% {
+        opacity: 0.6;
+      }
+      90% {
+        opacity: 0.4;
+      }
+      100% {
+        transform: translateY(150vh) translateX(30px) rotate(360deg);
+        opacity: 0.2;
+      }
+    }
+
+    @keyframes confetti-fall-left {
+      0% {
+        transform: translateY(0) translateX(0) rotate(0deg);
+        opacity: 0.5;
+      }
+      100% {
+        transform: translateY(150vh) translateX(-25px) rotate(-360deg);
+        opacity: 0.2;
+      }
+    }
+
+    .hero-confetti .confetti {
+      animation: confetti-fall 8s linear infinite;
+    }
+
+    .hero-confetti .confetti.drift-l {
+      animation-name: confetti-fall-left;
+    }
+
+    .hero-confetti .confetti.d1 { left: 5%;  animation-delay: 0s;   animation-duration: 7s; }
+    .hero-confetti .confetti.d2 { left: 12%; animation-delay: 1.2s; animation-duration: 9s; }
+    .hero-confetti .confetti.d3 { left: 22%; animation-delay: 0.3s; animation-duration: 8s; }
+    .hero-confetti .confetti.d4 { left: 35%; animation-delay: 2s;   animation-duration: 7.5s; }
+    .hero-confetti .confetti.d5 { left: 48%; animation-delay: 0.8s; animation-duration: 10s; }
+    .hero-confetti .confetti.d6 { left: 58%; animation-delay: 1.5s; animation-duration: 8.5s; }
+    .hero-confetti .confetti.d7 { left: 68%; animation-delay: 0.1s; animation-duration: 9.5s; }
+    .hero-confetti .confetti.d8 { left: 78%; animation-delay: 2.2s; animation-duration: 7.2s; }
+    .hero-confetti .confetti.d9 { left: 88%; animation-delay: 1s;   animation-duration: 8.8s; }
+    .hero-confetti .confetti.d10 { left: 95%; animation-delay: 1.8s; animation-duration: 9.2s; }
+    .hero-confetti .confetti.d11 { left: 8%;  animation-delay: 3s;   animation-duration: 8.2s; }
+    .hero-confetti .confetti.d12 { left: 28%; animation-delay: 2.5s; animation-duration: 7.8s; }
+    .hero-confetti .confetti.d13 { left: 42%; animation-delay: 0.5s; animation-duration: 9.8s; }
+    .hero-confetti .confetti.d14 { left: 55%; animation-delay: 2.8s; animation-duration: 7s; }
+    .hero-confetti .confetti.d15 { left: 72%; animation-delay: 1.3s; animation-duration: 8.3s; }
+    .hero-confetti .confetti.d16 { left: 92%; animation-delay: 0.6s; animation-duration: 9s; }
+    .hero-confetti .confetti.d17 { left: 18%; animation-delay: 2.1s; animation-duration: 8.6s; }
+    .hero-confetti .confetti.d18 { left: 52%; animation-delay: 0.4s; animation-duration: 9.4s; }
+    .hero-confetti .confetti.d19 { left: 65%; animation-delay: 1.7s; animation-duration: 7.4s; }
+    .hero-confetti .confetti.d20 { left: 82%; animation-delay: 2.6s; animation-duration: 8.9s; }
+    .hero-confetti .confetti.d21 { left: 32%; animation-delay: 0.9s; animation-duration: 7.7s; }
+    .hero-confetti .confetti.d22 { left: 75%; animation-delay: 1.4s; animation-duration: 9.1s; }
+
+    header .container {
+      position: relative;
+      z-index: 1;
     }
 
     .hero-tag {
@@ -84,15 +280,15 @@
     }
 
     section.about-section {
-      background: #e0d5c9;
+      background: var(--brown-warm-1);
     }
 
     section.projects-section {
-      background: #d9cdc3;
+      background: var(--brown-warm-2);
     }
 
     section.skills-section {
-      background: #e0d5c9;
+      background: var(--brown-warm-1);
     }
 
     h2 {
@@ -186,7 +382,7 @@
       left: 0;
       right: 0;
       padding: 1rem 1.5rem;
-      background: rgba(250, 249, 246, 0.9);
+      background: rgba(250, 248, 245, 0.92);
       backdrop-filter: blur(8px);
       border-bottom: 1px solid var(--border);
       z-index: 100;
@@ -243,10 +439,50 @@
   </nav>
 
   <header>
+    <div class="hero-confetti" aria-hidden="true">
+      <div class="confetti d1 red-bright"></div>
+      <div class="confetti d2 brown drift-l"></div>
+      <div class="confetti d3 mid tan drift-l"></div>
+      <div class="confetti d4 red-bright2"></div>
+      <div class="confetti d5 mid drift-l"></div>
+      <div class="confetti d6 lg brown"></div>
+      <div class="confetti d7 tan drift-l"></div>
+      <div class="confetti d8 red-bright"></div>
+      <div class="confetti d9 mid red-bright2 drift-l"></div>
+      <div class="confetti d10 brown"></div>
+      <div class="confetti d11 lg red-bright"></div>
+      <div class="confetti d12 tan"></div>
+      <div class="confetti d13 red-bright2"></div>
+      <div class="confetti d14 mid red-bright"></div>
+      <div class="confetti d15 brown"></div>
+      <div class="confetti d16 tan"></div>
+      <span class="confetti star d17">⭐</span>
+      <span class="confetti star sm d18 drift-l">⭐</span>
+      <span class="confetti star d19">⭐</span>
+      <span class="confetti star lg d20 drift-l">⭐</span>
+      <span class="confetti star sm d21">⭐</span>
+      <span class="confetti star d22 drift-l">⭐</span>
+    </div>
+    <div class="hero-squares" aria-hidden="true">
+      <div class="square sq1 shade-b"></div>
+      <div class="square sq2 fill red-b1"></div>
+      <div class="square sq3 shade-e"></div>
+      <div class="square sq4 fill red-b2"></div>
+      <div class="square sq5 fill shade-f"></div>
+      <div class="square sq6 red-b1"></div>
+      <div class="square sq7 light-only red-b2"></div>
+      <div class="square sq8 light-only shade-e"></div>
+      <div class="square sq9 light-only red-b1"></div>
+      <div class="square sq10 shade-d"></div>
+      <div class="square sq11 light-only shade-b"></div>
+      <div class="square sq12 red-b2"></div>
+      <div class="square sq13 light-only shade-c"></div>
+      <div class="square sq14 fill red-b1"></div>
+      <div class="square sq15 light-only shade-d"></div>
+    </div>
     <div class="container">
       <p class="hero-tag">Master in Management Candidate at the Chicago Booth School of Business</p>
       <h1>Judith Hernandez</h1>
-      <p class="hero-sub">I build thoughtful digital experiences and interfaces that people love to use.</p>
     </div>
   </header>
 
@@ -258,6 +494,12 @@
         I have a BA in Media Arts & Design from the University of Chicago where I established the foundation
         for my interests; they sit at the intersection of marketing, design, data, and technology.
       </p>
+      <p>Through internships and project-based work, I’ve supported marketing operations, business development, 
+        and audience growth for both early-stage and established organizations. I’m interested in how creative 
+        ideas move from concept to execution, and my work focuses on the structure and strategy that help ideas 
+        take shape and reach real people. I’m drawn to environments where clarity allows creativity to grow!
+
+      </p>
     </div>
   </section>
 
@@ -266,17 +508,17 @@
       <h2>Projects</h2>
       <ul class="project-list">
         <li>
-          <div class="project-title">Project One</div>
+          <div class="project-title">Social Media Strategy</div>
           <p class="project-desc">A short description of your first project—what it does and why it matters.</p>
           <a href="#" class="project-link">View project →</a>
         </li>
         <li>
-          <div class="project-title">Project Two</div>
+          <div class="project-title">Data Analysis</div>
           <p class="project-desc">A short description of your second project and the tech or approach you used.</p>
           <a href="#" class="project-link">View project →</a>
         </li>
         <li>
-          <div class="project-title">Project Three</div>
+          <div class="project-title">BA Capstone Project</div>
           <p class="project-desc">Another project highlight. Link to a live site or repo when you're ready.</p>
           <a href="#" class="project-link">View project →</a>
         </li>
