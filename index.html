@@ -353,10 +353,19 @@
     }
 
     section.about-section .about-image {
-      max-width: 160px;
+      max-width: 180px;
       height: auto;
       filter: brightness(0) invert(1);
       display: block;
+    }
+
+    section.about-section .about-logos .about-image:first-child {
+      max-width: 145px;
+      margin-left: 55px;
+    }
+
+    section.about-section .about-logos .about-image:nth-child(2) {
+      max-width: 255px;
     }
 
     @media (max-width: 520px) {
@@ -364,7 +373,14 @@
         flex-direction: column;
       }
       section.about-section .about-image {
-        max-width: 120px;
+        max-width: 140px;
+      }
+      section.about-section .about-logos .about-image:first-child {
+        max-width: 110px;
+        margin-left: 35px;
+      }
+      section.about-section .about-logos .about-image:nth-child(2) {
+        max-width: 180px;
       }
     }
 
@@ -686,12 +702,15 @@
     <div class="container">
       <h2>Skills</h2>
       <div class="skills">
-        <span class="skill-tag">HTML & CSS</span>
-        <span class="skill-tag">JavaScript</span>
-        <span class="skill-tag">React</span>
-        <span class="skill-tag">UI/UX</span>
-        <span class="skill-tag">Figma</span>
-        <span class="skill-tag">Git</span>
+        <span class="skill-tag">HTML/CSS</span>
+        <span class="skill-tag">Microsoft Office</span>
+        <span class="skill-tag">Adobe Suite</span>
+        <span class="skill-tag">Canva</span>
+        <span class="skill-tag">Procreate</span>
+        <span class="skill-tag">Asana</span>
+        <span class="skill-tag">Notion</span>
+        <span class="skill-tag">Touch Designer</span>
+        <span class="skill-tag">Max MSP</span>
       </div>
     </div>
   </section>
@@ -699,7 +718,7 @@
   <section id="contact">
     <div class="container">
       <h2>Contact</h2>
-      <p>I'm open to new opportunities and collaborations. Say hello.</p>
+      <p>I'm open to new opportunities. Say hello!</p>
       <div class="contact-links">
         <a href="mailto:judithh@chicagobooth.edu">judithh@chicagobooth.edu</a>
       </div>
@@ -707,7 +726,7 @@
   </section>
 
   <footer>
-    <div class="container">© 2025 Judith Hernandez. Built with care.</div>
+    <div class="container">© 2025 Judith Hernandez.</div>
   </footer>
 </body>
 </html>
