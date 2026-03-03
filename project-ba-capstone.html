@@ -50,9 +50,135 @@
     .project-content p { color: var(--text-muted); margin-bottom: 1rem; }
     .project-content a { color: var(--accent); text-decoration: none; }
     .project-content a:hover { text-decoration: underline; }
+
+    .capstone-hero-section {
+      margin-left: calc(-50vw + 50%);
+      margin-right: calc(-50vw + 50%);
+      width: 100vw;
+      max-width: 100vw;
+      padding-left: 1.5rem;
+      padding-right: 1.5rem;
+    }
+
+    .capstone-hero-row {
+      display: flex;
+      align-items: flex-start;
+      gap: 1.5rem;
+      flex-wrap: wrap;
+      max-width: 900px;
+      margin: 1.5rem auto 0;
+    }
+
+    .capstone-hero-section .capstone-hero-images {
+      grid-template-columns: 1fr;
+      margin: 1.5rem auto 0.5rem;
+      max-width: 640px;
+    }
+
+    .capstone-hero-images {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 1.25rem;
+      margin: 1.5rem 0 0.5rem;
+    }
+
+    .capstone-video-wrapper {
+      flex-shrink: 0;
+      width: 260px;
+      max-width: 100%;
+      border-radius: 8px;
+      overflow: hidden;
+      background: #1a1a1a;
+      box-shadow: 0 8px 32px rgba(0,0,0,0.12);
+    }
+
+    .capstone-video-wrapper video {
+      display: block;
+      width: 100%;
+      height: auto;
+      vertical-align: middle;
+    }
+
+
+    .capstone-image-card {
+      border-radius: 10px;
+      overflow: hidden;
+      background: #fff;
+      border: 1px solid var(--border);
+      box-shadow: 0 10px 28px rgba(0,0,0,0.12);
+    }
+
+    .capstone-image-card img {
+      display: block;
+      width: 100%;
+      height: auto;
+    }
+
+    .capstone-image-caption {
+      font-size: 0.9rem;
+      color: var(--text-muted);
+      margin-top: 1.5rem;
+      margin-left: auto;
+      margin-right: auto;
+      padding: 0 1.5rem;
+      text-align: center;
+      max-width: 720px;
+    }
+
+    .capstone-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.25rem;
+      margin-top: 1.25rem;
+    }
+
+    .capstone-grid.capstone-stack-and-one {
+      grid-template-columns: 1fr 1fr;
+      align-items: start;
+    }
+
+    .capstone-stack {
+      display: flex;
+      flex-direction: column;
+      gap: 1.25rem;
+    }
+
+    .capstone-stack .capstone-image-card {
+      flex: 0 0 auto;
+    }
+
     .dark-section { background: var(--brown-dark); color: var(--text-on-dark); padding: 3rem 0 !important; margin: 0 -1.5rem; padding-left: 1.5rem !important; padding-right: 1.5rem !important; }
     .dark-section h2 { color: var(--text-on-dark); }
     .dark-section p { color: var(--text-on-dark-muted); }
+
+    @media (max-width: 720px) {
+      .capstone-hero-row {
+        flex-direction: column;
+      }
+
+      .capstone-hero-section .capstone-hero-images {
+        min-width: 0;
+      }
+
+      .capstone-video-wrapper {
+        width: 100%;
+        max-width: 360px;
+        align-self: center;
+      }
+
+      .capstone-hero-images {
+        grid-template-columns: 1fr;
+      }
+
+      .capstone-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .capstone-grid.capstone-stack-and-one {
+        grid-template-columns: 1fr;
+      }
+    }
+
     @media (max-width: 600px) { .nav-links { display: none; } }
   </style>
 </head>
@@ -80,19 +206,47 @@
       <div class="project-content">
         <!-- Add your project content below -->
 
+        <section class="capstone-hero-section">
+          <div class="capstone-hero-images">
+            <div class="capstone-image-card">
+              <img src="images/LaptopScreen_TD.png" alt="Laptop displaying the live BA Capstone TouchDesigner visuals." loading="lazy">
+            </div>
+            <div class="capstone-image-card">
+              <img src="images/TouchDesignerScreenShot.png" alt="Full-frame BA Capstone visual generated in TouchDesigner." loading="lazy">
+            </div>
+          </div>
+          <p class="capstone-image-caption">Laptop screen and full-frame output from the TouchDesigner visual system built for the BA Capstone performance. These images are screenshots of the moving visuals.</p>
+        </section>
+
         <section>
           <h2>Overview</h2>
-          <p>Add a short overview of this project here. What was the goal, who was it for, and what was your role?</p>
+          <p>Bloom is a project I developed for my senior capstone project, using the programming software TouchDesigner. Inspired by my experiences as a touring/gigging bassist, I wanted to design an interactive experience that allows musicians to engage with real-time, audio-reactive visuals. This project merges the dynamic energy of live performance with innovative digital experiences, creating a seamless connection between sound and visual art.</p>
         </section>
 
         <section>
           <h2>Technical approach</h2>
-          <p>Describe how you built the system in TouchDesigner: inputs, logic, visuals, and how it responded to the performance.</p>
+          <p>The visuals were developed by experimenting with Noise operators in TouchDesigner.
+            I created a network of operators that would generate visuals based on the audio input, whether from an audio file, MIDI, or from a microphone.
+            Based on the intricacies of the audio, such as the volume, pitch, etc.,  the operators would generate different visuals.
+          </p>
         </section>
 
         <section>
           <h2>Outcomes</h2>
-          <p>Share documentation, video, or links. You can add images or embed a demo.</p>
+          <p> A live experience for any type of musician.</p>
+          <div class="capstone-grid capstone-stack-and-one">
+            <div class="capstone-stack">
+              <div class="capstone-image-card">
+                <img src="images/TD_1.png" alt="TouchDesigner network showing nodes used to generate the visuals." loading="lazy">
+              </div>
+              <div class="capstone-image-card">
+                <img src="images/TD_2.png" alt="Closer view of TouchDesigner operators controlling the visual system." loading="lazy">
+              </div>
+            </div>
+            <div class="capstone-image-card">
+              <img src="images/IRL_TD.png" alt="In-performance photo of the BA Capstone visuals projected during the live show." loading="lazy">
+            </div>
+          </div>
         </section>
 
         <!-- Add more sections as needed -->

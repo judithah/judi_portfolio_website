@@ -489,8 +489,13 @@
     .contact-links {
       display: flex;
       flex-wrap: wrap;
-      gap: 1.5rem;
+      align-items: center;
+      gap: 0.75rem;
       margin-top: 1rem;
+    }
+
+    .contact-divider {
+      color: var(--text-muted);
     }
 
     .contact-links a {
@@ -541,9 +546,39 @@
     /* Footer */
     footer {
       padding: 2rem 0;
-      text-align: center;
       font-size: 0.9rem;
       color: var(--text-muted);
+    }
+
+    .footer-inner {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 1rem;
+    }
+
+    .footer-social-link {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 28px;
+      height: 28px;
+      border-radius: 999px;
+      background: #0a66c2;
+      border: 1px solid #0a66c2;
+      color: #ffffff;
+      text-decoration: none;
+    }
+
+    .footer-social-link svg {
+      width: 16px;
+      height: 16px;
+      fill: #ffffff;
+    }
+
+    .footer-social-link:hover {
+      background: #004182;
+      border-color: #004182;
     }
 
     @media (max-width: 600px) {
@@ -668,8 +703,8 @@
           </p>
         </div>
         <div class="about-logos">
-          <img src="UChiShield.png" alt="University of Chicago shield" class="about-image">
-          <img src="Booth.png" alt="Chicago Booth School of Business" class="about-image">
+          <img src="images/UChiShield.png" alt="University of Chicago shield" class="about-image">
+          <img src="images/Booth.png" alt="Chicago Booth School of Business" class="about-image">
         </div>
       </div>
     </div>
@@ -703,6 +738,9 @@
       <h2>Skills</h2>
       <div class="skills">
         <span class="skill-tag">HTML/CSS</span>
+        <span class="skill-tag">SQL</span>
+        <span class="skill-tag">Python</span>
+        <span class="skill-tag">Snowflake</span>
         <span class="skill-tag">Microsoft Office</span>
         <span class="skill-tag">Adobe Suite</span>
         <span class="skill-tag">Canva</span>
@@ -721,6 +759,18 @@
       <p>I'm open to new opportunities. Say hello!</p>
       <div class="contact-links">
         <a href="mailto:judithh@chicagobooth.edu">judithh@chicagobooth.edu</a>
+        <span class="contact-divider">|</span>
+        <a
+          href="https://www.linkedin.com/in/judith-hernandez-9a3a17221/"
+          class="footer-social-link"
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label="LinkedIn profile"
+        >
+          <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+            <path d="M4.98 3.5C4.98 4.88 3.9 6 2.5 6S0 4.88 0 3.5 1.08 1 2.48 1s2.5 1.12 2.5 2.5zM.2 8.1h4.6V23H.2V8.1zM8.56 8.1h4.41v2.03h.06c.61-1.16 2.1-2.38 4.32-2.38 4.62 0 5.47 3.04 5.47 6.99V23h-4.6v-7.01c0-1.67-.03-3.82-2.33-3.82-2.33 0-2.69 1.82-2.69 3.7V23h-4.6V8.1z"/>
+          </svg>
+        </a>
       </div>
     </div>
   </section>

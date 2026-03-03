@@ -75,6 +75,42 @@
       margin-top: 0.75rem;
       font-style: italic;
     }
+
+    .project-section-title {
+      color: var(--accent) !important;
+    }
+
+    .social-posts-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 1rem;
+      margin-top: 1rem;
+    }
+
+    .social-posts-grid a {
+      display: block;
+      border-radius: 10px;
+      overflow: hidden;
+      background: #fff;
+      border: 1px solid var(--border);
+      box-shadow: 0 8px 24px rgba(0,0,0,0.08);
+      transition: transform 160ms ease, box-shadow 160ms ease;
+    }
+
+    .social-posts-grid a:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 12px 28px rgba(0,0,0,0.12);
+    }
+
+    .social-posts-grid img {
+      display: block;
+      width: 100%;
+      height: auto;
+    }
+
+    @media (max-width: 720px) {
+      .social-posts-grid { grid-template-columns: 1fr; }
+    }
     @media (max-width: 600px) { .nav-links { display: none; } }
   </style>
 </head>
@@ -103,7 +139,7 @@
         <!-- Add your project content below -->
 
         <section class="video-section">
-          <h2>Coclo Landing Page — Demo Walkthrough</h2>
+          <h2 class="project-section-title">Coclo Landing Page — Demo Walkthrough</h2>
           <p>Walkthrough of the final landing page I designed and built for Coclo.</p>
           <div class="video-wrapper">
             <video src="Coclo_Landing_Page.mov" controls playsinline preload="metadata" poster="">
@@ -121,6 +157,38 @@
         <section>
           <h2>Process & approach</h2>
           <p>I focused on choosing design options and carefully crafting the experience around who the customer is and the needs of the company, so the landing page speaks directly to college students and supports Coclo’s mission.</p>
+        </section>
+
+        <section>
+          <h2 class="project-section-title">Instagram, LinkedIn, and Facebook Posts, Daniel Murphy Scholarship Fund, 2024.</h2>
+          <p>A few examples of cross-platform social content created for DMSF.</p>
+          <div class="social-posts-grid">
+            <a href="images/DMSF_MeetMe.png" target="_blank" rel="noopener noreferrer">
+              <img src="images/DMSF_MeetMe.png" alt="DMSF social post: Meet Judi, Marketing Intern." loading="lazy">
+            </a>
+            <a href="images/DMSF_Memorial_Day.png" target="_blank" rel="noopener noreferrer">
+              <img src="images/DMSF_Memorial_Day.png" alt="DMSF social post: Memorial Day, Honor and Remember." loading="lazy">
+            </a>
+            <a href="images/DMSF_PrideMonth.png" target="_blank" rel="noopener noreferrer">
+              <img src="images/DMSF_PrideMonth.png" alt="DMSF social post: Happy Pride Month from DMSF." loading="lazy">
+            </a>
+          </div>
+        </section>
+
+        <section>
+          <h2 class="project-section-title">Online and In Store Flyers, Sugar Bliss, 2022.</h2>
+          <p>Flyer designs created for Sugar Bliss to support both online and in-store promotions.</p>
+          <div class="social-posts-grid">
+            <a href="images/SB_1.png" target="_blank" rel="noopener noreferrer">
+              <img src="images/SB_1.png" alt="Sugar Bliss flyer design 1." loading="lazy">
+            </a>
+            <a href="images/SB_2.png" target="_blank" rel="noopener noreferrer">
+              <img src="images/SB_2.png" alt="Sugar Bliss flyer design 2." loading="lazy">
+            </a>
+            <a href="images/SB_3.png" target="_blank" rel="noopener noreferrer">
+              <img src="images/SB_3.png" alt="Sugar Bliss flyer design 3." loading="lazy">
+            </a>
+          </div>
         </section>
 
       </div>
